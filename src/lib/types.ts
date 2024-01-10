@@ -11,3 +11,11 @@ export type ClassName = {
 };
 
 export type Heading = Children & ClassName;
+
+export type SignUpFormState = {
+  usernameMessage: string;
+  passwordMessage: string;
+  confirmPasswordMessage: string;
+  emailMessage: string;
+  dbMessage: string;
+};
