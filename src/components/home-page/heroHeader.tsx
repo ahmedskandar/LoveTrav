@@ -1,4 +1,4 @@
-import Logo from "@/components/Logo";
+import Logo from "@/components/ui/logo";
 import DropdownUI from "@/components/home-page/DropdownUI";
 
 import React from "react";
@@ -6,7 +6,7 @@ import { Link } from "@nextui-org/react";
 
 const HeroHeader = () => {
   return (
-    <header className="absolute w-full p-10 xl:px-20 flex justify-between">
+    <header className="absolute flex w-full justify-between p-10 xl:px-20">
       <Logo />
       <DropdownUI />
       <div className="hidden space-x-10 md:block">
