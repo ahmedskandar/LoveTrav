@@ -1,7 +1,13 @@
-const SignupPage = () => {
-  return (
-    <div>Signup Page</div>
-  )
-}
+import SignupFormContainer from "@/components/signup-page/SignupFormContainer";
+import ImageContainer from "@/components/ui/imageContainer";
 
-export default SignupPage
+const Signup = () => {
+  return (
+    <div className="flex h-[100svh] flex-col md:flex-row">
+      <ImageContainer src="/images/couple.jpeg" />
+      <SignupFormContainer />
+    </div>
+  );
+};
+
+export default Signup;
