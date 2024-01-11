@@ -17,5 +17,6 @@ export type SignUpFormState = {
   passwordMessage: string;
   confirmPasswordMessage: string;
   emailMessage: string;
+  nationalitySelectMessage: string;
   dbMessage: string;
 };
