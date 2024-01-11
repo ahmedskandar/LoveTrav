@@ -8,7 +8,7 @@ import SubmitButton from "../ui/submitButton";
 import { useFormState } from "react-dom";
 import { initialLoginFormState } from "@/lib/constants";
 import { loginAction } from "@/lib/actions";
-import FormPrompt from "../ui/FormPrompt";
+import FormPrompt from "../ui/formPrompt";
 
 const LoginForm = () => {
   const [formState, action] = useFormState(loginAction, initialLoginFormState);

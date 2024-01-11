@@ -11,7 +11,7 @@ import { initialSignUpFormState } from "@/lib/constants";
 import NationalitySelect from "../ui/NationalitySelect";
 import ImageUpload from "../ui/ImageUpload";
 import SubmitButton from "../ui/submitButton";
-import FormPrompt from "../ui/FormPrompt";
+import FormPrompt from "../ui/formPrompt";
 
 const SignupForm = () => {
   const [formState, action] = useFormState<SignUpFormState, FormData>(
