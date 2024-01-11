@@ -19,14 +19,7 @@ registerPlugin(
   FilePondPluginFileEncode,
 );
 
-
-const ImageUpload = ({
-  name,
-  errorMessage,
-}: {
-  name: string;
-  errorMessage: string;
-}) => {
+const ImageUpload = ({ name }: { name: string }) => {
   return (
     <div className="cursor-pointer">
       <FilePond
@@ -35,6 +28,7 @@ const ImageUpload = ({
         name={name} // Set the field name for the file
         labelFileTypeNotAllowed="Invalid file type. Please upload an image"
         allowMultiple={false}
+        labelFileProcessingError="An error occurred during processing"
         labelIdle="Drag & Drop or Browse your desired profile image"
       />
     </div>
