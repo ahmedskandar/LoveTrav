@@ -19,6 +19,7 @@ const Password = ({
 
   return (
     <Input
+      isRequired
       className="mb-5"
       name={name}
       label={label}
