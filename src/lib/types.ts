@@ -18,5 +18,6 @@ export type SignUpFormState = {
   confirmPasswordMessage: string;
   emailMessage: string;
   nationalitySelectMessage: string;
+  imageMessage: string;
   dbMessage: string;
 };
