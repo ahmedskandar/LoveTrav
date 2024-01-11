@@ -25,8 +25,8 @@ const SignupForm = () => {
         name="username"
         type="text"
         variant="bordered"
-        isInvalid={!!formState.usernameMessage}
-        errorMessage={formState.usernameMessage}
+        isInvalid={!!formState.username}
+        errorMessage={formState.username}
         label="Username"
         className="mb-5 placeholder:text-black"
         color="warning"
@@ -36,26 +36,26 @@ const SignupForm = () => {
         name="email"
         type="email"
         variant="bordered"
-        isInvalid={!!formState.emailMessage}
-        errorMessage={formState.emailMessage}
+        isInvalid={!!formState.email}
+        errorMessage={formState.email}
         label="Email"
         className="mb-5 placeholder:text-black"
         color="warning"
         endContent={<FontAwesomeIcon color="lightgray" icon={faEnvelope} />}
       />
       <Password
-        errorMessage={formState.passwordMessage}
+        errorMessage={formState.password}
         label="Password"
         name="password"
       />
       <Password
-        errorMessage={formState.confirmPasswordMessage}
+        errorMessage={formState.confirmPassword}
         label="Confirm password"
         name="confirmPassword"
       />
       <NationalitySelect
         name="nationality"
-        errorMessage={formState.nationalitySelectMessage}
+        errorMessage={formState.nationality}
       />
       <ImageUpload name="image" />
       <SubmitButton>Sign up</SubmitButton>

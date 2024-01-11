@@ -34,13 +34,13 @@ export const signUpAction = async (
   if (!validatedSignUp.success) {
     const error = validatedSignUp.error.formErrors.fieldErrors;
     return {
-      usernameMessage: error?.username?.[0] || "",
-      passwordMessage: error?.password?.[0] || "",
-      confirmPasswordMessage: error?.confirmPassword?.[0] || "",
-      emailMessage: error?.email?.[0] || "",
-      nationalitySelectMessage: error?.nationality?.[0] || "",
-      imageMessage: error?.image?.[0] || "",
-      dbMessage: "",
+      username: error?.username?.[0] || "",
+      password: error?.password?.[0] || "",
+      confirmPassword: error?.confirmPassword?.[0] || "",
+      email: error?.email?.[0] || "",
+      nationality: error?.nationality?.[0] || "",
+      image: error?.image?.[0] || "",
+      db: "",
     };
   }
 
@@ -48,8 +48,8 @@ export const signUpAction = async (
   //   //db connection
   // } catch (e) {
   //   if (e instanceof Error)
-  //     return { ...initialSignUpFormState, dbMessage: e.message };
-  //   return { ...initialSignUpFormState, dbMessage: "SOmething wrong happened" };
+  //     return { ...initialSignUpFormState, db: e.message };
+  //   return { ...initialSignUpFormState, db: "SOmething wrong happened" };
   // } finally {
   //   //redirect
   //   redirect("/");

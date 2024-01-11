@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { loginSchema } from "./schemas";
+import { loginSchema, signUpSchema } from "./schemas";
 
 export type FormPrompt = {
   to: "login" | "signup";
@@ -15,14 +15,6 @@ export type ClassName = {
 
 export type Heading = Children & ClassName;
 
-export type SignUpFormState = {
-  usernameMessage: string;
-  passwordMessage: string;
-  confirmPasswordMessage: string;
-  emailMessage: string;
-  nationalitySelectMessage: string;
-  imageMessage: string;
-  dbMessage: string;
-};
+export type SignUpFormState = z.infer<typeof signUpSchema>
 
 export type LoginFormState = z.infer<typeof loginSchema>
