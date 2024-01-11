@@ -5,6 +5,7 @@ const Signup = () => {
   return (
     <div className="flex h-[100svh] flex-col md:flex-row">
       <ImageContainer
+        component="signup"
         alt="A travelling couple sitting together enjoying next to Eiffel tower"
         src="/images/couple.jpeg"
       />
