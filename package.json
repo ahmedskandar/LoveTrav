@@ -24,7 +24,8 @@
     "next": "14.0.4",
     "react": "^18",
     "react-dom": "^18",
-    "react-filepond": "^7.1.2"
+    "react-filepond": "^7.1.2",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@types/node": "^20",
