@@ -10,3 +10,8 @@ export const initialSignUpFormState = {
   imageMessage: "",
   dbMessage: "",
 };
+
+export const initialLoginFormState = {
+  email: '',
+  password: '',
+}
