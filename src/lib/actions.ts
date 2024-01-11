@@ -1,9 +1,9 @@
 "use server";
 
 import { redirect } from "next/navigation";
-import { SignUpFormState } from "./types";
-import { initialSignUpFormState } from "./constants";
-import { signUpSchema } from "./schemas";
+import { LoginFormState, SignUpFormState } from "./types";
+import { initialLoginFormState, initialSignUpFormState } from "./constants";
+import { loginSchema, signUpSchema } from "./schemas";
 
 export const signUpAction = async (
   prevState: SignUpFormState,
@@ -56,4 +56,25 @@ export const signUpAction = async (
   // }
 
   return initialSignUpFormState;
+};
+
+export const loginAction = async (
+  prevState: LoginFormState,
+  formData: FormData,
+) => {
+  const email = formData.get("email") as string;
+  const password = formData.get("password") as string;
+
+  const validatedLogin = loginSchema.safeParse({ email, password });
+
+  if (!validatedLogin.success) {
+    const error = validatedLogin.error.formErrors.fieldErrors;
+    return {
+      email: error?.email?.[0] || "",
+      password: error?.password?.[0] || "",
+    };
+  }
+
+  //Connect to db and send data for logging in
+  return initialLoginFormState;
 };
