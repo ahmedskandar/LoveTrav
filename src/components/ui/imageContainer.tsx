@@ -1,8 +1,8 @@
 import Image from "next/image";
 
-const ImageContainer = ({ src, alt }: { src: string; alt: string }) => {
+const ImageContainer = ({ src, alt, component }: { src: string; alt: string, component: 'login' | 'signup' }) => {
   return (
-    <div className="relative hidden basis-1/2 overflow-hidden rounded-r-full md:block">
+    <div className={`relative hidden basis-1/2 overflow-hidden ${component === 'signup' && 'rounded-r-full'} md:block`}>
       <Image
         priority
         fill
