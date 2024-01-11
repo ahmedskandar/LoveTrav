@@ -11,6 +11,7 @@ import { initialSignUpFormState } from "@/lib/constants";
 import NationalitySelect from "../ui/NationalitySelect";
 import ImageUpload from "../ui/ImageUpload";
 import SubmitButton from "../ui/submitButton";
+import FormPrompt from "../ui/FormPrompt";
 
 const SignupForm = () => {
   const [formState, action] = useFormState<SignUpFormState, FormData>(
@@ -58,6 +59,7 @@ const SignupForm = () => {
       />
       <ImageUpload name="image" />
       <SubmitButton>Sign up</SubmitButton>
+      <FormPrompt to="login" />
     </form>
   );
 };
