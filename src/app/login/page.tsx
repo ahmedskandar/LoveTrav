@@ -1,16 +1,17 @@
 import LoginFormContainer from "@/components/login-page/loginFormContainer";
+import AuthPageContainer from "@/components/ui/authPageContainer";
 import ImageContainer from "@/components/ui/imageContainer";
 
 const Login = () => {
   return (
-    <div className="flex h-[100svh] flex-col md:flex-row">
+    <AuthPageContainer>
       <LoginFormContainer />
       <ImageContainer
         component="login"
         alt="An aeroplane flying through the clouds"
         src="/images/plane.jpeg"
       />
-    </div>
+    </AuthPageContainer>
   );
 };
 
