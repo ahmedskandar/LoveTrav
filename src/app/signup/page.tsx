@@ -4,7 +4,10 @@ import ImageContainer from "@/components/ui/imageContainer";
 const Signup = () => {
   return (
     <div className="flex h-[100svh] flex-col md:flex-row">
-      <ImageContainer src="/images/couple.jpeg" />
+      <ImageContainer
+        alt="A travelling couple sitting together enjoying next to Eiffel tower"
+        src="/images/couple.jpeg"
+      />
       <SignupFormContainer />
     </div>
   );
