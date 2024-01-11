@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Remove default eye in password input */
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+  display: none;
+}
+
+/* Bordered drop area */
+.filepond--panel-root {
+  background: linear-gradient(to right, #ffdab9, #ffd999);
+  border-radius: 24rem;
+  border: 1px solid lightgray;
+}
