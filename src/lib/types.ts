@@ -1,3 +1,6 @@
+import { z } from "zod";
+import { loginSchema } from "./schemas";
+
 export type FormPrompt = {
   to: "login" | "signup";
 };
@@ -21,3 +24,5 @@ export type SignUpFormState = {
   imageMessage: string;
   dbMessage: string;
 };
+
+export type LoginFormState = z.infer<typeof loginSchema>
