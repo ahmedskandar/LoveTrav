@@ -9,9 +9,13 @@ export const initialSignUpFormState = {
   nationality: "",
   image: "",
   db: "",
+  signUpSuccess: "",
+  signUpError: "",
 };
 
 export const initialLoginFormState = {
   email: '',
   password: '',
+  loginSuccess: '',
+  loginError: ''
 }
