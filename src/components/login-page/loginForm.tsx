@@ -9,9 +9,23 @@ import { useFormState } from "react-dom";
 import { initialLoginFormState } from "@/lib/constants";
 import { loginAction } from "@/lib/actions";
 import FormPrompt from "../ui/formPrompt";
+import { toast } from "sonner";
+import { redirect } from "next/navigation";
+import { useEffect } from "react";
 
 const LoginForm = () => {
   const [formState, action] = useFormState(loginAction, initialLoginFormState);
+
+
+  useEffect(() => {
+
+    if (formState.loginError) toast.error(formState.loginError);
+    if (formState.loginSuccess) {
+      toast.success(formState.loginSuccess);
+      redirect('/')
+    }
+  }, [formState.loginSuccess, formState.loginError])
+
   return (
     <form className="mt-8" action={action}>
       <Input
@@ -38,6 +52,7 @@ const LoginForm = () => {
         </Link>
       </div>
       <SubmitButton>Log in</SubmitButton>
+      {/* <p className="text-red-500 italic">{formState.db}</p> */}
       <FormPrompt to="signup" />
     </form>
   );
