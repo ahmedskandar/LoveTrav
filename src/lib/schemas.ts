@@ -8,8 +8,9 @@ export const signUpSchema = z
     username: z.string().min(1, "Username input should not be empty"),
     confirmPassword: z
       .string()
-      .min(1, "Confirm password input should not be empty"),
-    image: z.number().gt(0).or(z.string()).optional(),
+      .min(1, "Confirm password input should not be empty")
+      .optional(),
+    image: z.number().gt(0).or(z.string()).or(z.instanceof(File)).optional(),
   })
   .refine((data) => data.password === data.confirmPassword, {
     message: "Passwords must match",
