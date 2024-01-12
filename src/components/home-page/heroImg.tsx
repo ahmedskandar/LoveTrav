@@ -9,6 +9,7 @@ const HeroImg = () => {
         alt=""
         fill
         priority
+        sizes="100vw"
       />
     </div>
   );
