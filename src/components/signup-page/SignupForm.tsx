@@ -22,12 +22,15 @@ const SignupForm = () => {
   );
 
   useEffect(() => {
-    if (formState.signUpError) toast.error(formState.signUpError);
+    if (formState.signUpError) {
+      toast.error(formState.signUpError);
+      formState.signUpError = ""
+    }
     if (formState.signUpSuccess) {
       toast.success(formState.signUpSuccess);
       redirect("/");
     }
-  }, [formState.signUpError, formState.signUpSuccess]);
+  }, [formState]);
 
   return (
     <form className="mt-8" action={action}>

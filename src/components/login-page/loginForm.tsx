@@ -16,15 +16,16 @@ import { useEffect } from "react";
 const LoginForm = () => {
   const [formState, action] = useFormState(loginAction, initialLoginFormState);
 
-
   useEffect(() => {
-
-    if (formState.loginError) toast.error(formState.loginError);
+    if (formState.loginError) {
+      toast.error(formState.loginError);
+      formState.loginError = ""
+    }
     if (formState.loginSuccess) {
       toast.success(formState.loginSuccess);
-      redirect('/')
+      redirect("/");
     }
-  }, [formState.loginSuccess, formState.loginError])
+  }, [formState]);
 
   return (
     <form className="mt-8" action={action}>
