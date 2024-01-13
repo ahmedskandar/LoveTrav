@@ -7,32 +7,38 @@ import {
   DropdownMenu,
   DropdownItem,
 } from "@nextui-org/react";
-import { faBars } from "@fortawesome/free-solid-svg-icons/faBars";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons/faBars";
 
 const DropdownUI = () => {
   return (
-    <Dropdown className="bg-black/50 md:hidden">
+    <Dropdown className="bg-black/50 md:hidden focus">
       <DropdownTrigger className="md:hidden">
         <Button
           isIconOnly
-          className="h-auto bg-transparent"
-          aria-label="Open menu"
+          className=" focus bg-transparent"
+          aria-label="Open links"
         >
-          <FontAwesomeIcon icon={faBars} color="white" size="lg" />
+          <FontAwesomeIcon
+            icon={faBars}
+            className="focus"
+            color="white"
+            size="lg"
+          />
         </Button>
       </DropdownTrigger>
-      <DropdownMenu className="md:hidden" aria-label="Static Actions">
+      <DropdownMenu className="md:hidden" aria-label="Link actions">
         <DropdownItem
-          key="new"
-          className="bg-white/20 text-white"
+          key="login"
+          className="focus bg-white/20 text-white"
           href="/login"
         >
           Login
         </DropdownItem>
         <DropdownItem
-          className="mt-2 bg-white/20 text-white"
-          key="copy"
+          className="focus mt-2 bg-white/20 text-white"
+          key="signup"
           href="/signup"
         >
           Signup

@@ -1,19 +1,21 @@
 "use client";
 
-import { Input } from "@nextui-org/react";
-import Password from "../ui/password";
+import { useEffect } from "react";
 import { useFormState } from "react-dom";
+import { redirect } from "next/navigation";
+
+import ImageUpload from "../ui/ImageUpload";
+import FormPrompt from "../ui/formPrompt";
+import Password from "../ui/password";
+import SubmitButton from "../ui/submitButton";
+import NationalitySelect from "../ui/NationalitySelect";
 import { signUpAction } from "@/lib/actions";
+import { initialSignUpFormState } from "@/lib/constants";
+
+import { Input } from "@nextui-org/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
-import { initialSignUpFormState } from "@/lib/constants";
-import NationalitySelect from "../ui/NationalitySelect";
-import ImageUpload from "../ui/ImageUpload";
-import SubmitButton from "../ui/submitButton";
-import FormPrompt from "../ui/formPrompt";
 import { toast } from "sonner";
-import { redirect } from "next/navigation";
-import { useEffect } from "react";
 
 const SignupForm = () => {
   const [formState, action] = useFormState(
@@ -24,7 +26,7 @@ const SignupForm = () => {
   useEffect(() => {
     if (formState.signUpError) {
       toast.error(formState.signUpError);
-      formState.signUpError = ""
+      formState.signUpError = "";
     }
     if (formState.signUpSuccess) {
       toast.success(formState.signUpSuccess);

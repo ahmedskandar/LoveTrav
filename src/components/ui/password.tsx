@@ -29,7 +29,7 @@ const Password = ({
       variant="bordered"
       endContent={
         <button
-          className="rounded-full focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-1"
+          className="rounded-full focus"
           type="button"
           onClick={togglePassEyeVisibility}
         >

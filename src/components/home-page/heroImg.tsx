@@ -6,7 +6,7 @@ const HeroImg = () => {
       <Image
         className="object-cover object-center"
         src="/images/globe.jpg"
-        alt=""
+        alt="Main background image showing holding a levitating glowing globe"
         fill
         priority
         sizes="100vw"

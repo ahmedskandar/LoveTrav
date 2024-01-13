@@ -1,10 +1,10 @@
-'use client'
+"use client";
 
 import { Children } from "@/lib/types";
 import { Button } from "@nextui-org/react";
 import { useFormStatus } from "react-dom";
 
-const SubmitButton = ({children}: Children) => {
+const SubmitButton = ({ children }: Children) => {
   const { pending } = useFormStatus();
 
   return (

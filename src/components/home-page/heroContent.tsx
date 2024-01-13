@@ -1,9 +1,10 @@
+import Link from "next/link";
+
+import { Button } from "@nextui-org/react";
+
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { faGlobe } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button } from "@nextui-org/react";
-import Link from "next/link";
-import React from "react";
 
 const HeroContent = () => {
   return (
@@ -29,7 +30,7 @@ const HeroContent = () => {
         size="lg"
         href="/login"
         radius="sm"
-        className="self-center bg-gradient-to-tr from-pink-500 to-yellow-500 font-bold text-white focus:border-none xl:self-start"
+        className="self-center bg-gradient-to-tr from-pink-500 to-yellow-500 font-bold text-white xl:self-start"
       >
         Start Tracking
       </Button>

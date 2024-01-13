@@ -1,17 +1,19 @@
 "use client";
 
-import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Checkbox, Input, Link } from "@nextui-org/react";
+import { useEffect } from "react";
+import { useFormState } from "react-dom";
+import { redirect } from "next/navigation";
+
+import FormPrompt from "../ui/formPrompt";
 import Password from "../ui/password";
 import SubmitButton from "../ui/submitButton";
-import { useFormState } from "react-dom";
 import { initialLoginFormState } from "@/lib/constants";
 import { loginAction } from "@/lib/actions";
-import FormPrompt from "../ui/formPrompt";
+
 import { toast } from "sonner";
-import { redirect } from "next/navigation";
-import { useEffect } from "react";
+import { Checkbox, Input, Link } from "@nextui-org/react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 
 const LoginForm = () => {
   const [formState, action] = useFormState(loginAction, initialLoginFormState);
@@ -19,7 +21,7 @@ const LoginForm = () => {
   useEffect(() => {
     if (formState.loginError) {
       toast.error(formState.loginError);
-      formState.loginError = ""
+      formState.loginError = "";
     }
     if (formState.loginSuccess) {
       toast.success(formState.loginSuccess);
