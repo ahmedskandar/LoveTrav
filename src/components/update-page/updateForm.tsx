@@ -22,7 +22,7 @@ const UpdateForm = () => {
     }
     if (formState.updateSuccess) {
       toast.success(formState.updateSuccess);
-      redirect("/");
+      redirect("/app");
     }
   }, [formState]);
 
