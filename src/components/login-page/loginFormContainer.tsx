@@ -2,7 +2,7 @@ import Logo from "@/components/ui/logo";
 import Heading from "../ui/heading";
 import LoginForm from "./loginForm";
 
-const SignupFormContainer = () => {
+const LoginFormContainer = () => {
   return (
     <div className="flex basis-1/2 flex-col items-center p-10 md:h-[100svh]">
       <Logo />
@@ -14,4 +14,4 @@ const SignupFormContainer = () => {
   );
 };
 
-export default SignupFormContainer;
+export default LoginFormContainer;
