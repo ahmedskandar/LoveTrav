@@ -1,13 +1,15 @@
 "use client";
 
+import { redirect } from "next/navigation";
 import React, { useEffect } from "react";
+import { useFormState } from "react-dom";
+
+import { initialUpdateFormState } from "@/lib/constants";
 import Password from "../ui/password";
 import SubmitButton from "../ui/submitButton";
-import { useFormState } from "react-dom";
 import { updateAction } from "@/lib/actions";
-import { initialUpdateFormState } from "@/lib/constants";
+
 import { toast } from "sonner";
-import { redirect } from "next/navigation";
 
 const UpdateForm = () => {
   const [formState, action] = useFormState(

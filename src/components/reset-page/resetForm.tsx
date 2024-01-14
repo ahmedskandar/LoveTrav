@@ -1,17 +1,18 @@
 'use client'
 
 import { Input } from "@nextui-org/react";
+import { redirect } from "next/navigation";
+import { useFormState } from "react-dom";
+import { useEffect } from "react";
 
 import SubmitButton from "../ui/submitButton";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useFormState } from "react-dom";
 import { resetAction } from "@/lib/actions";
 import { initialResetFormState } from "@/lib/constants";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
-import { useEffect } from "react";
 import { toast } from "sonner";
-import { redirect } from "next/navigation";
+
 
 const ResetForm = () => {
 
