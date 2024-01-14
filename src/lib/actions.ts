@@ -1,10 +1,13 @@
 "use server";
 
-import { redirect } from "next/navigation";
-import { LoginFormState, SignUpFormState } from "./types";
-import { initialLoginFormState, initialSignUpFormState } from "./constants";
-import { loginSchema, signUpSchema } from "./schemas";
-import { login, signup } from "@/services/apiAuth";
+import { LoginFormState, ResetFormState, SignUpFormState } from "./types";
+import {
+  initialLoginFormState,
+  initialSignUpFormState,
+  initialResetFormState,
+} from "./constants";
+import { loginSchema, resetSchema, signUpSchema } from "./schemas";
+import { login, reset, signup } from "@/services/apiAuth";
 
 export const signUpAction = async (
   prevState: SignUpFormState,
@@ -96,4 +99,30 @@ export const loginAction = async (
       return { ...initialLoginFormState, loginError: e.message };
   }
   return initialLoginFormState;
+};
+
+export const resetAction = async (
+  prevState: ResetFormState,
+  formData: FormData,
+) => {
+  const email = formData.get("email") as string;
+  const validatedReset = resetSchema.safeParse({ email });
+  if (!validatedReset.success)
+    return {
+      ...initialResetFormState,
+      email: validatedReset.error.formErrors.fieldErrors?.email?.[0] || '',
+    };
+
+  try {
+    await reset({ email });
+    return {
+      ...initialResetFormState,
+      resetSuccess:
+        "Verification email has been sent! Please check your email for a link to complete the process.",
+    };
+  } catch (e) {
+    if (e instanceof Error)
+      return { ...initialResetFormState, resetError: e.message };
+  }
+  return initialResetFormState;
 };

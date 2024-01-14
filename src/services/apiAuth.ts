@@ -1,4 +1,4 @@
-import { LoginFormState, SignUpFormState } from "../lib/types";
+import { LoginFormState, ResetFormState, SignUpFormState } from "../lib/types";
 import { supabaseUrl, supabaseServer } from "./supabase";
 
 export const login = async ({ email, password }: LoginFormState) => {
@@ -49,4 +49,9 @@ export const signup = async ({
     .upload(imageName, image);
   if (storageError)
     throw new Error("Image could not be uploaded, please try again");
+};
+
+export const reset = async ({ email }: ResetFormState) => {
+  const { error } = await supabaseServer.auth.resetPasswordForEmail(email);
+  if (error) throw new Error(error.message);
 };

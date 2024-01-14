@@ -21,3 +21,7 @@ export const loginSchema = z.object({
   email: z.string().min(1, "Email input should not be empty").email(),
   password: z.string().min(6, "Password length must be greater than 6"),
 });
+
+export const resetSchema = z.object({
+  email: z.string().email(),
+});
