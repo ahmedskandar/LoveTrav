@@ -8,7 +8,6 @@ export const initialSignUpFormState = {
   email: "",
   nationality: "",
   image: "",
-  db: "",
   signUpSuccess: "",
   signUpError: "",
 };
@@ -18,4 +17,10 @@ export const initialLoginFormState = {
   password: '',
   loginSuccess: '',
   loginError: ''
+}
+
+export const initialResetFormState = {
+  email: '',
+  resetSuccess: '',
+  resetError: ''
 }
