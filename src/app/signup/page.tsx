@@ -1,4 +1,4 @@
-import SignupFormContainer from "@/components/signup-page/SignupFormContainer";
+import SignupFormContainer from "@/components/signup-page/signupFormContainer";
 import AuthPageContainer from "@/components/ui/authPageContainer";
 import ImageContainer from "@/components/ui/imageContainer";
 import coupleImage from '/public/images/couple.jpeg'

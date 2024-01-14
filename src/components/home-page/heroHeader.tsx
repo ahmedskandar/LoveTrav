@@ -1,8 +1,8 @@
 import Logo from "@/components/ui/logo";
-import DropdownUI from "@/components/home-page/DropdownUI";
 
 import React from "react";
 import { Link } from "@nextui-org/react";
+import DropdownUI from "./dropdownUI";
 
 const HeroHeader = () => {
   return (

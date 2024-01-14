@@ -4,11 +4,11 @@ import { useEffect } from "react";
 import { useFormState } from "react-dom";
 import { redirect } from "next/navigation";
 
-import ImageUpload from "../ui/ImageUpload";
 import FormPrompt from "../ui/formPrompt";
 import Password from "../ui/password";
 import SubmitButton from "../ui/submitButton";
-import NationalitySelect from "../ui/NationalitySelect";
+import NationalitySelect from "../ui/nationalitySelect";
+import ImageUpload from "../ui/imageUpload";
 import { signUpAction } from "@/lib/actions";
 import { initialSignUpFormState } from "@/lib/constants";
 

@@ -1,6 +1,6 @@
 import Logo from "@/components/ui/logo";
 import Heading from "../ui/heading";
-import SignupForm from "./SignupForm";
+import SignupForm from "./signupForm";
 
 const SignupFormContainer = () => {
   return (
