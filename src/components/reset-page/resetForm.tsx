@@ -24,7 +24,7 @@ const ResetForm = () => {
     }
     if (formState.resetSuccess) {
       toast.success(formState.resetSuccess);
-      redirect("/");
+      redirect("/login");
     }
   }, [formState]);
 
