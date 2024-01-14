@@ -1,16 +1,12 @@
-import Heading from "@/components/ui/heading";
-import Logo from "@/components/ui/logo";
-import UpdateContent from "@/components/update-page/updateContent";
-import UpdateForm from "@/components/update-page/updateForm";
+import UpdatePage from "@/components/update-page/update";
+// import UpdateForm from "@/components/update-page/updateForm";
+import { getCurrentUser } from "@/services/apiAuth";
 
-const Update = () => {
+const Update = async () => {
+  const user = await getCurrentUser();
+  //localhost:3000/?error=unauthorized_client&error_code=401&error_description=Email+link+is+invalid+or+has+expired#error=unauthorized_client&error_code=401&error_description=Email+link+is+invalid+or+has+expired
   return (
-    <>
-      <div className="mx-auto max-w-xl space-y-8 p-10">
-        <UpdateContent />
-        <UpdateForm />
-      </div>
-    </>
+    <UpdatePage userRole={user?.role || ""} />
   );
 };
 
