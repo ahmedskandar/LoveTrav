@@ -63,3 +63,14 @@ export const update = async ({ password }: { password: string }) => {
 
   if (error) throw new Error(error.message);
 };
+
+export const getCurrentUser = async () => {
+  const { data: session } = await supabaseServer.auth.getSession();
+  if (!session.session) return null; //If no current user
+
+  const { data, error } = await supabaseServer.auth.getUser();
+
+  if (error) throw new Error(error.message);
+
+  return data?.user;
+};
