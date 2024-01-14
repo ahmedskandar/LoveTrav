@@ -1,11 +1,11 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
 const ImageContainer = ({
   src,
   alt,
   component,
 }: {
-  src: string;
+  src: StaticImageData;
   alt: string;
   component: "login" | "signup";
 }) => {
@@ -21,6 +21,7 @@ const ImageContainer = ({
         src={src}
         sizes="(min-width: 768px) 50vw"
         className="object-cover"
+        placeholder="blur"
         alt={alt}
       />
     </div>
