@@ -25,3 +25,11 @@ export const loginSchema = z.object({
 export const resetSchema = z.object({
   email: z.string().email(),
 });
+
+export const updateSchema = z.object({
+  password: z.string().min(6, "Password length must be greater than 6"),
+  confirmPassword: z
+    .string()
+    .min(1, "Confirm password input should not be empty")
+    .optional(),
+});

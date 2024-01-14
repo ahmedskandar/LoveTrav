@@ -55,3 +55,11 @@ export const reset = async ({ email }: ResetFormState) => {
   const { error } = await supabaseServer.auth.resetPasswordForEmail(email);
   if (error) throw new Error(error.message);
 };
+
+export const update = async ({ password }: { password: string }) => {
+  const { error } = await supabaseServer.auth.updateUser({
+    password: password,
+  });
+
+  if (error) throw new Error(error.message);
+};

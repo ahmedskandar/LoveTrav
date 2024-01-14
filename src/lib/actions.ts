@@ -1,13 +1,19 @@
 "use server";
 
-import { LoginFormState, ResetFormState, SignUpFormState } from "./types";
+import { LoginFormState, ResetFormState, SignUpFormState, UpdateFormState } from "./types";
 import {
   initialLoginFormState,
   initialSignUpFormState,
   initialResetFormState,
+  initialUpdateFormState,
 } from "./constants";
-import { loginSchema, resetSchema, signUpSchema } from "./schemas";
-import { login, reset, signup } from "@/services/apiAuth";
+import {
+  loginSchema,
+  resetSchema,
+  signUpSchema,
+  updateSchema,
+} from "./schemas";
+import { login, reset, signup, update } from "@/services/apiAuth";
 
 export const signUpAction = async (
   prevState: SignUpFormState,
@@ -110,7 +116,7 @@ export const resetAction = async (
   if (!validatedReset.success)
     return {
       ...initialResetFormState,
-      email: validatedReset.error.formErrors.fieldErrors?.email?.[0] || '',
+      email: validatedReset.error.formErrors.fieldErrors?.email?.[0] || "",
     };
 
   try {
@@ -125,4 +131,35 @@ export const resetAction = async (
       return { ...initialResetFormState, resetError: e.message };
   }
   return initialResetFormState;
+};
+
+export const updateAction = async (
+  prevState: UpdateFormState,
+  formData: FormData,
+) => {
+  const password = formData.get("password") as string;
+  const confirmPassword = formData.get("confirmPassword") as string;
+  const validatedPassword = updateSchema.safeParse({password, confirmPassword});
+
+  if (!validatedPassword.success) {
+    const errors = validatedPassword.error.formErrors.fieldErrors;
+    return {
+      ...initialUpdateFormState,
+      confirmPassword: errors?.confirmPassword?.[0] || "",
+      password: errors?.password?.[0] || "",
+    };
+  }
+
+  try {
+    await update({ password });
+    return {
+      ...initialUpdateFormState,
+      updateSuccess:
+        "Password successfully updated! Be sure to not forget it next time :)",
+    };
+  } catch (e) {
+    if (e instanceof Error)
+      return { ...initialUpdateFormState, updateError: e.message };
+  }
+  return initialUpdateFormState;
 };

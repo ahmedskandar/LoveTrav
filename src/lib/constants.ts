@@ -24,3 +24,10 @@ export const initialResetFormState = {
   resetSuccess: '',
   resetError: ''
 }
+
+export const initialUpdateFormState = {
+  password: '',
+  confirmPassword: '',
+  updateError: '',
+  updateSuccess: ''
+}

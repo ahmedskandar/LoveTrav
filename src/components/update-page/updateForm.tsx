@@ -1,14 +1,36 @@
-import { Input } from "@nextui-org/react";
-import React from "react";
+"use client";
+
+import React, { useEffect } from "react";
 import Password from "../ui/password";
 import SubmitButton from "../ui/submitButton";
+import { useFormState } from "react-dom";
+import { updateAction } from "@/lib/actions";
+import { initialUpdateFormState } from "@/lib/constants";
+import { toast } from "sonner";
+import { redirect } from "next/navigation";
 
 const UpdateForm = () => {
+  const [formState, action] = useFormState(
+    updateAction,
+    initialUpdateFormState,
+  );
+
+  useEffect(() => {
+    if (formState.updateError) {
+      toast.error(formState.updateError);
+      formState.updateError = "";
+    }
+    if (formState.updateSuccess) {
+      toast.success(formState.updateSuccess);
+      redirect("/");
+    }
+  }, [formState]);
+
   return (
-    <form>
-      <Password errorMessage="" label="Password" name="password" />
+    <form action={action}>
+      <Password errorMessage={formState.password} label="Password" name="password" />
       <Password
-        errorMessage=""
+        errorMessage={formState.confirmPassword}
         label="Confirm password"
         name="confirmPassword"
       />
